@@ -14,7 +14,7 @@ The page is written in Korean and uses semantic HTML sections with IDs for navig
 
 ## Images and Contact Details
 
-Use `Coming Soon` wherever project photos, equipment images, or public case materials are not ready. The contact email is currently a placeholder (`abcdefg@abcdefg.co.kr`); replace it in both the visible link and its `mailto:` target when the company provides the final address.
+Use `Coming Soon` wherever project photos, equipment images, or public case materials are not ready. The contact email is `admin@sichae.com`; keep the visible address and `mailto:` target in sync if it changes.
 
 ## Changes
 
