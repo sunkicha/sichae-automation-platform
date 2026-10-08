@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073b91">
+  <meta name="description" content="SICHAE는 현장 중심의 자동화 제어 소프트웨어 플랫폼을 개발하는 스타트업입니다. PC·PLC·모션·비전·MES 기술을 연결합니다.">
+  <title>SICHAE | 자동화 제어 소프트웨어 플랫폼</title>
+  <style>
+    :root {
+      --navy: #071c42;
+      --blue: #0756b7;
+      --blue-bright: #1678e8;
+      --cyan: #56def5;
+      --ice: #eaf7ff;
+      --ink: #10284b;
+      --muted: #627793;
+      --line: #dce9f5;
+      --white: #fff;
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f6faff;
+      font-family: Pretendard, "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar { position: absolute; inset: 0 0 auto; z-index: 2; color: var(--white); }
+    .nav { height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 25px; font-weight: 800; letter-spacing: .12em; }
+    .brand-mark { width: 34px; height: 34px; border: 2px solid #b9f4ff; border-radius: 10px; position: relative; transform: rotate(30deg); }
+    .brand-mark::before, .brand-mark::after { content: ""; position: absolute; background: var(--cyan); border-radius: 50%; width: 7px; height: 7px; }
+    .brand-mark::before { top: 4px; left: 4px; box-shadow: 15px 0 0 var(--cyan), 0 15px 0 var(--cyan), 15px 15px 0 var(--cyan); }
+    .brand-mark::after { width: 10px; height: 10px; left: 10px; top: 10px; background: white; }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 13px; color: #d8eaff; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-contact { border: 1px solid #8bc9ff; padding: 10px 17px; border-radius: 999px; }
+    .hero { min-height: 690px; padding: 164px 0 90px; color: white; overflow: hidden; position: relative; background: radial-gradient(ellipse at 78% 35%, #1678e8 0, transparent 38%), linear-gradient(125deg, #062454 0%, #0756b7 64%, #0879d1 100%); }
+    .hero::before { content: ""; position: absolute; width: 520px; height: 520px; border: 1px solid rgba(196,238,255,.13); border-radius: 50%; top: 70px; right: -120px; box-shadow: 0 0 0 55px rgba(196,238,255,.035), 0 0 0 110px rgba(196,238,255,.025); }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 64px; align-items: center; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: #b9edff; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--cyan); }
+    h1 { margin: 22px 0 20px; font-size: clamp(38px, 5.4vw, 66px); line-height: 1.2; letter-spacing: -.055em; }
+    .hero-copy { max-width: 580px; color: #d9eaff; font-size: 17px; margin: 0 0 32px; }
+    .hero-status { display: inline-block; margin: -14px 0 25px; padding: 6px 11px; border: 1px solid rgba(185,244,255,.45); border-radius: 999px; color: #b9f4ff; font-size: 10px; font-weight: 800; letter-spacing: .13em; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 22px; border-radius: 999px; font-size: 14px; font-weight: 700; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-light { color: #073b91; background: white; }
+    .button-outline { border: 1px solid rgba(255,255,255,.5); color: white; }
+    .media-placeholder { min-height: 340px; border: 1px solid rgba(199,237,255,.35); border-radius: 28px; background: linear-gradient(145deg, rgba(210,244,255,.13), rgba(3,36,93,.25)); display: grid; place-items: center; position: relative; overflow: hidden; box-shadow: 0 28px 90px rgba(0,20,65,.2); }
+    .media-placeholder::before, .media-placeholder::after { content: ""; position: absolute; border: 1px solid rgba(202,240,255,.14); border-radius: 50%; width: 230px; height: 230px; }
+    .media-placeholder::after { width: 310px; height: 310px; }
+    .coming { position: relative; z-index: 1; text-align: center; color: #e8f8ff; }
+    .coming-icon { width: 52px; height: 52px; display: grid; place-items: center; margin: 0 auto 13px; border: 1px solid rgba(198,241,255,.65); border-radius: 16px; color: var(--cyan); font-size: 22px; }
+    .coming strong { display: block; font-size: 13px; letter-spacing: .18em; }
+    .coming span { display: block; margin-top: 5px; color: #c1ddf3; font-size: 12px; }
+    .section { padding: 104px 0; }
+    .section-head { max-width: 650px; margin-bottom: 42px; }
+    .section-kicker { margin: 0 0 12px; color: var(--blue-bright); font-weight: 800; font-size: 12px; letter-spacing: .16em; }
+    h2 { margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1.25; letter-spacing: -.045em; }
+    .section-intro { margin: 17px 0 0; color: var(--muted); font-size: 16px; }
+    .promise { background: white; }
+    .promise-card { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 18px 55px rgba(26,77,130,.06); }
+    .promise-main { padding: 42px; background: linear-gradient(145deg, #edf8ff, #f8fcff); }
+    .promise-main h3 { margin: 0 0 14px; font-size: 25px; letter-spacing: -.04em; }
+    .promise-main p { margin: 0; color: var(--muted); }
+    .promise-points { padding: 30px 42px; display: grid; align-content: center; gap: 18px; }
+    .point { display: flex; gap: 14px; align-items: flex-start; }
+    .point-num { flex: 0 0 30px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; background: #e3f5ff; color: var(--blue); font-size: 12px; font-weight: 800; }
+    .point strong { display: block; font-size: 15px; }
+    .point span { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .history { background: #f6faff; }
+    .history-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .history-layout .section-head { margin: 0; }
+    .timeline { border-left: 2px solid #c9e7fb; padding: 5px 0 5px 30px; }
+    .timeline-item { position: relative; padding: 10px 0; }
+    .timeline-dot { position: absolute; left: -39px; top: 15px; width: 16px; height: 16px; border: 4px solid white; border-radius: 50%; background: var(--blue-bright); box-shadow: 0 0 0 2px #90dafa; }
+    .timeline-date { margin: 0 0 7px; color: var(--blue-bright); font-size: 13px; font-weight: 800; }
+    .timeline-item h3 { margin: 0 0 10px; color: var(--ink); font-size: 21px; letter-spacing: -.035em; }
+    .timeline-item > p:not(.timeline-date) { margin: 0; color: var(--muted); font-size: 14px; }
+    .timeline-status { display: inline-block; margin-top: 17px; padding: 6px 10px; border-radius: 999px; color: #1767b5; background: #e3f5ff; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+    .services { background: #f6faff; }
+    .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .service-card { min-height: 310px; padding: 25px 22px; border: 1px solid var(--line); border-radius: 18px; background: white; transition: transform .2s, box-shadow .2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 35px rgba(26,77,130,.09); }
+    .service-icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 13px; background: #e8f6ff; color: var(--blue); font-size: 19px; font-weight: 800; }
+    .service-card h3 { margin: 20px 0 8px; font-size: 19px; }
+    .service-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .service-card ul { list-style: none; margin: 17px 0 0; padding: 13px 0 0; border-top: 1px solid var(--line); color: #425d7e; font-size: 12px; }
+    .service-card li { padding: 4px 0; }
+    .service-card li::before { content: "✓"; margin-right: 8px; color: var(--blue-bright); font-weight: 800; }
+    .issue-section { background: white; }
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .issue-card { padding: 23px; border: 1px solid var(--line); border-radius: 17px; background: #fbfdff; }
+    .issue-card > span { color: var(--blue-bright); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+    .issue-card h3 { margin: 12px 0 7px; font-size: 16px; letter-spacing: -.025em; }
+    .issue-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .business-overview { background: #f6faff; }
+    .business-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .business-panel { padding: 30px; border-radius: 19px; border: 1px solid var(--line); background: white; }
+    .business-panel.solution-panel { color: white; border-color: transparent; background: linear-gradient(140deg, #0a4a9c, #0879d1); }
+    .business-panel > span { color: var(--blue-bright); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+    .business-panel.solution-panel > span { color: #b9f4ff; }
+    .business-panel h3 { margin: 12px 0; font-size: 22px; letter-spacing: -.035em; }
+    .business-panel p { margin: 0; color: var(--muted); font-size: 14px; }
+    .business-panel.solution-panel p { color: #d8eaff; }
+    .business-note { margin: 18px 0 0; color: #6f849d; font-size: 11px; }
+    .advantage-section { background: white; }
+    .advantage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .advantage-card { padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: #fbfdff; }
+    .advantage-card span { color: var(--blue-bright); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+    .advantage-card h3 { margin: 11px 0 8px; font-size: 18px; }
+    .advantage-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .industries { background: #f6faff; }
+    .industry-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .industry { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding: 22px 23px; background: white; border: 1px solid var(--line); border-radius: 16px; }
+    .industry strong { font-size: 16px; }
+    .industry p { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+    .industry span { color: var(--muted); font-size: 10px; white-space: nowrap; }
+    .capabilities { color: white; background: linear-gradient(120deg, #071d45, #0a4b9d); }
+    .capabilities .section-kicker { color: var(--cyan); }
+    .capabilities .section-intro { color: #c1d8f2; }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
+    .tech { padding: 12px 17px; border: 1px solid rgba(202,233,255,.25); border-radius: 999px; color: #e7f5ff; background: rgba(255,255,255,.06); font-size: 14px; }
+    .tech-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 36px; }
+    .tech-detail-grid article { padding: 22px 24px; border: 1px solid rgba(202,233,255,.2); border-radius: 16px; background: rgba(255,255,255,.055); }
+    .tech-detail-grid strong { color: #f4fbff; font-size: 15px; }
+    .tech-detail-grid p { margin: 7px 0 0; color: #c1d8f2; font-size: 13px; }
+    .control-flow { margin-top: 38px; padding: 25px; border: 1px solid rgba(202,233,255,.2); border-radius: 18px; background: rgba(255,255,255,.045); }
+    .flow-label { margin: 0 0 20px; color: #e9f8ff; font-size: 14px; font-weight: 700; }
+    .flow-items { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .flow-items > div { flex: 1; padding: 15px 12px; border: 1px solid rgba(202,233,255,.22); border-radius: 13px; text-align: center; background: rgba(255,255,255,.06); }
+    .flow-items > div span { display: block; color: var(--cyan); font-size: 9px; letter-spacing: .13em; }
+    .flow-items > div strong { display: block; margin-top: 5px; color: white; font-size: 13px; }
+    .flow-items > b { color: var(--cyan); font-size: 18px; }
+    .flow-note { margin: 15px 0 0; color: #c1d8f2; font-size: 12px; }
+    .approach { background: #edf6ff; }
+    .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .approach-grid article { padding: 23px 21px; border: 1px solid #d9e8f6; border-radius: 17px; background: white; }
+    .approach-grid article > span { color: var(--blue-bright); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+    .approach-grid h3 { margin: 15px 0 7px; font-size: 17px; }
+    .approach-grid p { margin: 0; color: var(--muted); font-size: 13px; }
+    .roadmap-note { margin: 20px 0 0; color: #6e8299; font-size: 12px; }
+    .business-model { background: white; }
+    .model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .model-block h3 { margin: 0 0 15px; font-size: 19px; }
+    .model-list { display: grid; gap: 10px; }
+    .model-item { padding: 17px 19px; border: 1px solid var(--line); border-radius: 14px; background: #fbfdff; }
+    .model-item strong { display: block; font-size: 14px; }
+    .model-item p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .plan-label { display: inline-block; margin-left: 8px; padding: 3px 8px; vertical-align: 2px; border-radius: 999px; color: #1767b5; background: #e3f5ff; font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+    .entry-strategy { margin-top: 32px; padding-top: 27px; border-top: 1px solid var(--line); }
+    .entry-strategy h3 { margin: 0 0 16px; font-size: 19px; }
+    .entry-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .entry-step { padding: 18px 20px; border-radius: 14px; background: #edf6ff; }
+    .entry-step span { color: var(--blue-bright); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+    .entry-step strong { display: block; margin: 6px 0 4px; font-size: 14px; }
+    .entry-step p { margin: 0; color: var(--muted); font-size: 12px; }
+    .cases { background: white; }
+    .case-placeholder { min-height: 235px; border: 1px dashed #aac4df; border-radius: var(--radius); background: linear-gradient(135deg, #f4faff, #edf6ff); display: grid; place-items: center; }
+    .case-placeholder .coming { color: #37618e; }
+    .case-placeholder .coming-icon { border-color: #a8cae8; color: var(--blue); }
+    .case-placeholder .coming span { color: #7188a2; }
+    .faq { background: #f6faff; }
+    .faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
+    .faq-layout .section-head { margin: 0; }
+    .faq-list { border-top: 1px solid #cddceb; }
+    .faq-list details { border-bottom: 1px solid #cddceb; padding: 19px 4px; }
+    .faq-list summary { cursor: pointer; color: var(--ink); font-size: 15px; font-weight: 700; list-style: none; position: relative; padding-right: 28px; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; position: absolute; right: 3px; top: -2px; color: var(--blue-bright); font-size: 20px; font-weight: 400; }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list details p { margin: 12px 28px 0 0; color: var(--muted); font-size: 13px; }
+    .contact { padding: 78px 0; color: white; background: linear-gradient(110deg, #0756b7, #0879d1); }
+    .contact-row { display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+    .contact h2 { font-size: clamp(28px, 3.4vw, 40px); }
+    .contact p { margin: 12px 0 0; color: #d5eaff; }
+    .contact-link { display: inline-flex; align-items: center; gap: 12px; padding: 15px 20px; border-radius: 14px; background: white; color: #0756b7; font-weight: 800; white-space: nowrap; }
+    .contact-link:hover { background: #e8f8ff; }
+    footer { padding: 26px 0; color: #aec0d5; background: #061833; font-size: 12px; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-brand { color: white; font-weight: 800; letter-spacing: .14em; }
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding-top: 140px; }
+      .media-placeholder { min-height: 260px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .issue-grid { grid-template-columns: repeat(2, 1fr); }
+      .faq-layout { grid-template-columns: 1fr; gap: 32px; }
+      .history-layout { grid-template-columns: 1fr; gap: 30px; }
+      .advantage-grid { grid-template-columns: 1fr; }
+      .entry-steps { grid-template-columns: 1fr; }
+      .promise-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 36px, 1160px); }
+      .nav { height: 72px; }
+      .brand { font-size: 20px; }
+      .nav-links { gap: 12px; font-size: 12px; }
+      .nav-links a:not(.nav-contact) { display: none; }
+      .nav-contact { padding: 8px 12px; }
+      .hero { min-height: auto; padding: 124px 0 64px; }
+      .hero-copy { font-size: 15px; }
+      .section { padding: 76px 0; }
+      .industries { padding-top: 76px; }
+      .promise-main, .promise-points { padding: 27px; }
+      .service-grid { gap: 10px; }
+      .service-card { min-height: 0; padding: 19px 16px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .business-grid, .model-grid { grid-template-columns: 1fr; }
+      .industry-row { grid-template-columns: 1fr; }
+      .tech-detail-grid { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .flow-items { display: grid; grid-template-columns: 1fr; }
+      .flow-items > b { transform: rotate(90deg); justify-self: center; }
+      .control-flow { padding: 20px; }
+      .contact-row, .footer-row { align-items: flex-start; flex-direction: column; }
+      .contact-link { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="주요 메뉴">
+      <a class="brand" href="#home" aria-label="SICHAE 홈"><span class="brand-mark" aria-hidden="true"></span><span>SICHAE</span></a>
+      <div class="nav-links">
+        <a href="#about">회사 소개</a>
+        <a href="#history">연혁</a>
+        <a href="#business">사업 개요</a>
+        <a href="#services">플랫폼</a>
+        <a href="#technology">핵심 기술</a>
+        <a href="#approach">로드맵</a>
+        <a href="#model">사업화 계획</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-contact" href="#contact">문의하기</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid wrap">
+        <div>
+          <p class="eyebrow">SICHAE AUTOMATION CONTROL PLATFORM</p>
+          <h1>현장 중심의 제어를<br>하나의 플랫폼으로 연결합니다.</h1>
+          <p class="hero-copy">반도체·태양광·배터리 자동화 설비에서 쌓은 제어 경험을 바탕으로, PC·PLC·모션·비전·MES를 연결하는 자동화 제어 소프트웨어 플랫폼을 개발합니다.</p>
+          <span class="hero-status">PLATFORM IN DEVELOPMENT</span>
+          <div class="hero-actions">
+            <a class="button button-light" href="#services">플랫폼 개발 방향 <span aria-hidden="true">&nbsp;→</span></a>
+            <a class="button button-outline" href="#contact">개발·협력 문의</a>
+          </div>
+        </div>
+        <div class="media-placeholder" aria-label="이미지 준비 중">
+          <div class="coming"><div class="coming-icon" aria-hidden="true">＋</div><strong>COMING SOON</strong><span>플랫폼 화면 공개 준비 중</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section promise" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">ABOUT SICHAE</p>
+          <h2>현장의 제어 경험을<br>소프트웨어 플랫폼으로.</h2>
+          <p class="section-intro">SICHAE는 자동화 설비 제어 경험을 제품 개발로 연결하는 스타트업입니다. 반복되는 제어 문제를 줄이고, 서로 다른 설비 기술을 유연하게 연결하는 플랫폼을 만들고 있습니다.</p>
+        </div>
+        <div class="promise-card">
+          <div class="promise-main">
+            <h3>설비마다 다른 제어를 더 쉽게 연결하는 기반을 만듭니다.</h3>
+            <p>자동화 현장에서는 장비별 제어 방식과 연결 조건이 다르고, 작은 시퀀스 문제가 반복적으로 발생할 수 있습니다. SICHAE는 이런 현장 요구를 이해하고 PC·PLC·모션·비전·MES 기술을 하나의 소프트웨어 플랫폼에서 다룰 수 있도록 개발하고 있습니다.</p>
+          </div>
+          <div class="promise-points">
+            <div class="point"><span class="point-num">01</span><div><strong>현장 문제에서 시작</strong><span>설비 제어 중 반복되는 작고 까다로운 문제를 제품 개발의 출발점으로 삼습니다.</span></div></div>
+            <div class="point"><span class="point-num">02</span><div><strong>제어 기술의 연결</strong><span>PC, PLC, 모션, 비전, MES를 아우르는 플랫폼 구조를 개발합니다.</span></div></div>
+            <div class="point"><span class="point-num">03</span><div><strong>산업 현장 적용성</strong><span>반도체·태양광·배터리 자동화 경험을 바탕으로 실제 설비 환경을 고려합니다.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section history" id="history">
+      <div class="wrap history-layout">
+        <div class="section-head">
+          <p class="section-kicker">OUR HISTORY</p>
+          <h2>현장 경험을<br>플랫폼으로 연결합니다.</h2>
+          <p class="section-intro">현장 제어 경험을 바탕으로 자동화 제어 소프트웨어 플랫폼 개발을 시작했습니다.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <p class="timeline-date">2026년 초</p>
+            <h3>스타트업 SICHAE 출범 · 자동화 제어 플랫폼 개발 착수</h3>
+            <p>반도체·태양광·배터리 자동화 설비 제어 경험을 제품으로 발전시키기 위해 스타트업 SICHAE를 출범하고 플랫폼 개발을 시작했습니다.</p>
+            <span class="timeline-status">PLATFORM DEVELOPMENT</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section issue-section" id="issues">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">FIELD CHALLENGES</p>
+          <h2>자동화 현장의 제어 과제에서 출발합니다.</h2>
+          <p class="section-intro">현장마다 반복되는 제어 문제를 더 잘 다룰 수 있도록 플랫폼이 해결할 과제를 정리하고 있습니다.</p>
+        </div>
+        <div class="issue-grid">
+          <article class="issue-card"><span>01 / SEQUENCE</span><h3>반복되는 시퀀스 문제</h3><p>빈번하고 작은 오동작도 원인을 파악하고 재현·개선하기 어렵습니다.</p></article>
+          <article class="issue-card"><span>02 / EQUIPMENT</span><h3>서로 다른 장비와 제어 방식</h3><p>장비마다 다른 구성과 신호 규칙이 통합과 유지 관리를 복잡하게 만듭니다.</p></article>
+          <article class="issue-card"><span>03 / MOTION</span><h3>정밀한 동작과 타이밍</h3><p>모션 조건과 시퀀스가 맞물려 있어 동작 변경에 세심한 검토가 필요합니다.</p></article>
+          <article class="issue-card"><span>04 / VISION</span><h3>영상 결과를 제어에 활용</h3><p>카메라의 인식 결과가 설비 동작과 자연스럽게 연결되어야 합니다.</p></article>
+          <article class="issue-card"><span>05 / DATA</span><h3>설비와 상위 시스템 간 데이터</h3><p>현장 제어 정보와 MES 등 상위 시스템의 데이터를 연계해야 합니다.</p></article>
+          <article class="issue-card"><span>06 / CUSTOMIZATION</span><h3>현장마다 다른 요구사항</h3><p>표준화와 고객별 설비·공정 조건의 유연한 반영을 함께 고려해야 합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section business-overview" id="business">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">BUSINESS OVERVIEW</p>
+          <h2>현장별로 흩어진 제어를<br>연결 가능한 소프트웨어로.</h2>
+          <p class="section-intro">SICHAE는 자동화 설비 제어 경험을 바탕으로, 반복적인 현장 문제를 더 일관되게 다룰 수 있는 플랫폼을 개발합니다.</p>
+        </div>
+        <div class="business-grid">
+          <article class="business-panel">
+            <span>PROBLEM</span>
+            <h3>제어 개발은 장비마다 다시 시작됩니다.</h3>
+            <p>현장과 장비마다 제어 구성, 장치 연결, 공정 조건이 달라 비슷한 문제도 매번 새로 분석하고 대응해야 합니다. 작은 시퀀스 오류와 신호 연동 문제는 원인 파악이 어렵고, 제어 기술이 PC·PLC·비전·MES 등으로 나뉘어 있어 변경과 유지 관리에도 부담이 생깁니다.</p>
+          </article>
+          <article class="business-panel solution-panel">
+            <span>SOLUTION DIRECTION</span>
+            <h3>현장 맞춤형 자동화 제어 플랫폼을 만듭니다.</h3>
+            <p>PC·PLC 제어, 모션, 비전, 전장, MES 연동 역량을 소프트웨어 플랫폼의 기반으로 연결합니다. 공통적으로 필요한 제어 요소는 구조화하고, 고객별 설비와 공정 차이는 유연하게 반영하는 것이 개발 목표입니다.</p>
+          </article>
+        </div>
+        <p class="business-note">※ 문제 정의와 해결 방향은 현재 사업 구상입니다. 플랫폼 기능과 적용 범위는 개발 및 현장 검증을 거쳐 구체화할 예정입니다.</p>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">PLATFORM</p>
+          <h2>자동화 제어 플랫폼 개발 방향</h2>
+          <p class="section-intro">현장 중심의 제어 소프트웨어를 목표로, 설비 제어와 주변 기술을 연결하는 플랫폼을 개발하고 있습니다. 아래 항목은 현재의 개발 영역과 방향입니다.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon" aria-hidden="true">⌘</div><h3>시퀀스 제어</h3><p>설비 동작을 구성하고 점검하기 위한 제어 흐름을 플랫폼의 중심으로 다룹니다.</p><ul><li>PC·PLC 제어 환경</li><li>시퀀스·인터록 개념</li><li>알람·운전 상태 관리 방향</li></ul></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">⌁</div><h3>설비·모션 연결</h3><p>제어 소프트웨어와 장비 신호, 모션 동작이 연계되는 구조를 설계합니다.</p><ul><li>I/O와 장비 신호 연계</li><li>모션 동작·타이밍</li><li>설비별 구성 유연성</li></ul></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">⧉</div><h3>비전 통합</h3><p>산업용 카메라와 영상처리 결과를 자동화 제어에 활용하는 방향을 개발합니다.</p><ul><li>영상 입력 처리</li><li>대상 유무·위치 탐지</li><li>인식 결과와 제어 흐름 연동</li></ul></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">◎</div><h3>상위 시스템 연동</h3><p>설비 데이터와 상위 시스템이 연결되는 플랫폼 구조를 검토합니다.</p><ul><li>MES 연계 기반</li><li>설비 상태·생산 데이터</li><li>현장 요구 기반 확장</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section industries" id="industries">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">INDUSTRIES</p>
+          <h2>다양한 자동화 현장을 고려합니다.</h2>
+          <p class="section-intro">반도체·태양광·배터리 분야의 제어 경험을 바탕으로 산업별 설비 환경을 고려한 플랫폼을 지향합니다.</p>
+        </div>
+        <div class="industry-row" aria-label="주요 적용 산업">
+          <article class="industry"><div><strong>반도체</strong><p>정밀한 동작 순서와 장비 간 연동을 고려합니다.</p></div><span>Semiconductor</span></article>
+          <article class="industry"><div><strong>태양광</strong><p>공정 장비별 제어와 생산 흐름을 고려합니다.</p></div><span>Solar</span></article>
+          <article class="industry"><div><strong>배터리</strong><p>다양한 설비 구성과 동작 조건을 고려합니다.</p></div><span>Battery</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capabilities" id="technology">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">PLATFORM FOUNDATION</p>
+          <h2>다양한 제어 기술을<br>하나의 기반으로 연결합니다.</h2>
+          <p class="section-intro">SICHAE의 경험과 개발 역량을 이루는 기술 영역입니다. 플랫폼에서 지원할 구체 기능과 연동 범위는 개발 과정에서 구체화됩니다.</p>
+        </div>
+        <div class="tech-list">
+          <span class="tech">PC 제어</span><span class="tech">비전·영상 탐지</span><span class="tech">PLC</span><span class="tech">모션 제어</span><span class="tech">전장</span><span class="tech">산업용 카메라</span><span class="tech">MES 연동</span>
+        </div>
+        <div class="tech-detail-grid">
+          <article><strong>PC 제어 · PLC</strong><p>설비 시퀀스와 운전 상태를 관리하고, 장비 간 신호와 인터록을 구성합니다.</p></article>
+          <article><strong>모션 · 전장</strong><p>축 동작과 타이밍을 제어하고, 센서·액추에이터 등 설비 신호와 제어 흐름을 연결합니다.</p></article>
+          <article><strong>비전 · 산업용 카메라</strong><p>카메라 입력 영상을 활용해 필요한 대상 인식과 영상 탐지 기능을 구성합니다.</p></article>
+          <article><strong>MES 연동</strong><p>설비와 상위 시스템 사이의 생산 정보·상태 데이터 연계를 플랫폼 개발 영역으로 검토합니다.</p></article>
+        </div>
+        <div class="control-flow">
+          <p class="flow-label">플랫폼이 연결을 지향하는 자동화 구조</p>
+          <div class="flow-items" aria-label="센서와 카메라에서 제어기, 구동부, 상위 시스템으로 이어지는 흐름">
+            <div><span>INPUT</span><strong>센서 · 카메라</strong></div><b aria-hidden="true">→</b>
+            <div><span>CONTROL</span><strong>PC · PLC · 비전</strong></div><b aria-hidden="true">→</b>
+            <div><span>ACTION</span><strong>모션 · 구동부</strong></div><b aria-hidden="true">→</b>
+            <div><span>DATA</span><strong>MES · 상위 시스템</strong></div>
+          </div>
+          <p class="flow-note">개발 방향을 설명하는 개념도입니다. 실제 지원 장비, 통신 방식, 기능 범위는 플랫폼 개발 및 검증을 거쳐 확정할 예정입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section advantage-section" id="strengths">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">WHY SICHAE</p>
+          <h2>현장을 아는 제어 개발에서 시작합니다.</h2>
+          <p class="section-intro">SICHAE가 가진 경험과 기술 조합을 플랫폼 개발의 출발점으로 삼습니다.</p>
+        </div>
+        <div class="advantage-grid">
+          <article class="advantage-card"><span>FIELD EXPERIENCE</span><h3>자동화 현장 기반</h3><p>반도체·태양광·배터리 설비를 직접 제어하며 축적한 경험을 제품 개발의 기준으로 반영합니다.</p></article>
+          <article class="advantage-card"><span>CROSS-DOMAIN</span><h3>제어와 주변 기술의 연결</h3><p>PC·PLC·모션·전장·비전·MES를 함께 다뤄 설비 단위의 연결 구조를 고려합니다.</p></article>
+          <article class="advantage-card"><span>FLEXIBLE DESIGN</span><h3>고객별 구성 유연성</h3><p>공통 기능과 현장별 요구를 함께 고려해, 다양한 장비와 공정에 적용할 수 있는 구조를 지향합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">DEVELOPMENT ROADMAP</p>
+          <h2>현장 검증을 거쳐 단계적으로 제품화합니다.</h2>
+          <p class="section-intro">현재 개발 초기 단계이며, 아래는 사업화까지의 추진 방향안입니다.</p>
+        </div>
+        <div class="approach-grid">
+          <article><span>PHASE 01 · 개발 착수</span><h3>현장 요구와 구조 정의</h3><p>자동화 현장에서 반복되는 문제와 플랫폼의 우선 개발 범위를 구체화합니다.</p></article>
+          <article><span>PHASE 02 · 계획</span><h3>핵심 기능 프로토타입</h3><p>제어 시퀀스와 장비 연동 등 핵심 기능을 우선순위에 따라 구현합니다.</p></article>
+          <article><span>PHASE 03 · 계획</span><h3>현장 적용성 검증</h3><p>협력 가능한 설비와 적용 조건을 확인하고 사용자 피드백을 반영합니다.</p></article>
+          <article><span>PHASE 04 · 계획</span><h3>제품 패키지화</h3><p>검증된 기능과 기술 지원 방식을 정리해 사업화 가능한 제품으로 발전시킵니다.</p></article>
+        </div>
+        <p class="roadmap-note">※ 단계와 일정은 개발 진척도 및 현장 검증 여건에 따라 조정될 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="section business-model" id="model">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">GO-TO-MARKET</p>
+          <h2>현장 적용과 플랫폼 제품화를 함께 추진합니다.</h2>
+          <p class="section-intro">초기에는 고객 설비의 요구를 깊이 이해하고, 반복 수요가 확인된 기능부터 플랫폼으로 표준화하는 사업화 모델을 구상합니다.</p>
+        </div>
+        <div class="model-grid">
+          <div class="model-block">
+            <h3>우선 고객군 <span class="plan-label">가설</span></h3>
+            <div class="model-list">
+              <article class="model-item"><strong>자동화 장비 제조사</strong><p>신규 장비 제어 개발과 기존 제어 시스템 개선이 필요한 기업</p></article>
+              <article class="model-item"><strong>제조 현장·생산기술 조직</strong><p>반복적인 시퀀스 문제와 설비 연동 과제를 해결하려는 조직</p></article>
+              <article class="model-item"><strong>자동화 시스템 통합 기업</strong><p>PC·PLC·비전·MES 기술을 연결하는 개발 역량이 필요한 파트너</p></article>
+            </div>
+          </div>
+          <div class="model-block">
+            <h3>수익 모델 <span class="plan-label">구상안</span></h3>
+            <div class="model-list">
+              <article class="model-item"><strong>플랫폼 라이선스</strong><p>제품화 이후 설비·라인·사이트 단위 사용권 제공을 검토</p></article>
+              <article class="model-item"><strong>도입·맞춤 개발</strong><p>현장 적용, 시스템 연동, 고객별 기능 구성에 대한 프로젝트형 매출</p></article>
+              <article class="model-item"><strong>유지 관리·기술 지원</strong><p>도입 고객을 대상으로 업데이트와 기술 지원 체계 제공을 검토</p></article>
+            </div>
+          </div>
+        </div>
+        <div class="entry-strategy">
+          <h3>초기 시장 진입 전략 <span class="plan-label">구상안</span></h3>
+          <div class="entry-steps">
+            <article class="entry-step"><span>01 · 현장 과제 발굴</span><strong>구체적인 제어 문제 확인</strong><p>반도체·태양광·배터리 자동화 현장의 반복 수요와 우선 과제를 찾습니다.</p></article>
+            <article class="entry-step"><span>02 · 프로젝트 적용</span><strong>고객 설비에 맞춰 검증</strong><p>초기에는 맞춤 제어·연동 개발을 통해 현장 요구와 적용 조건을 검증합니다.</p></article>
+            <article class="entry-step"><span>03 · 기능 제품화</span><strong>공통 기능을 플랫폼으로</strong><p>반복 적용 가능한 기능을 표준화해 플랫폼 구성과 라이선스 모델로 발전시킵니다.</p></article>
+          </div>
+        </div>
+        <p class="roadmap-note">※ 고객군과 수익 모델은 현재 사업화 검토안이며, 시장 검증과 제품 범위 확정에 따라 조정될 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="section cases" id="cases">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">PROJECTS</p>
+          <h2>적용 사례</h2>
+          <p class="section-intro">플랫폼 화면과 개발 소식, 적용 사례를 순차적으로 공개할 예정입니다.</p>
+        </div>
+        <div class="case-placeholder" aria-label="적용 사례 준비 중">
+          <div class="coming"><div class="coming-icon" aria-hidden="true">＋</div><strong>COMING SOON</strong><span>적용 사례를 준비하고 있습니다</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="wrap faq-layout">
+        <div class="section-head">
+          <p class="section-kicker">FAQ</p>
+          <h2>문의 전 자주 묻는 내용</h2>
+          <p class="section-intro">플랫폼 개발 현황과 협력 가능 범위에 대해 자주 묻는 내용을 정리했습니다.</p>
+        </div>
+        <div class="faq-list">
+          <details><summary>플랫폼은 지금 사용할 수 있나요?</summary><p>현재 자동화 제어 플랫폼을 개발하고 있습니다. 공개 가능한 기능과 사용 일정은 구체화되는 대로 안내할 예정입니다.</p></details>
+          <details><summary>어떤 기능을 개발하고 있나요?</summary><p>PC·PLC 제어, 모션, 비전·영상처리, 전장, MES 연동 등 보유 역량을 바탕으로 자동화 제어 기능을 연결하는 플랫폼을 개발 중입니다. 세부 기능 범위는 개발 과정에서 확정됩니다.</p></details>
+          <details><summary>어떤 산업을 위한 플랫폼인가요?</summary><p>반도체·태양광·배터리 자동화 설비 제어 경험을 기반으로 개발하고 있습니다. 다양한 설비 환경에 적용할 수 있도록 요구 사항을 검토하고 있습니다.</p></details>
+          <details><summary>플랫폼 개발이나 기술 협력을 논의할 수 있나요?</summary><p>가능합니다. 적용하려는 설비와 제어 과제, 필요한 연동 범위를 이메일로 보내주시면 검토 후 논의할 수 있습니다.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-row">
+        <div><p class="section-kicker">CONTACT</p><h2>자동화 제어의 다음을 함께 만듭니다.</h2><p>플랫폼 개발, 기술 협력, 자동화 제어 관련 문의를 이메일로 보내주세요.</p></div>
+        <a class="contact-link" href="mailto:abcdefg@abcdefg.co.kr"><span aria-hidden="true">✉</span> abcdefg@abcdefg.co.kr <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row"><span class="footer-brand">SICHAE</span><span>Automation Control Software Platform</span><span>© SICHAE. All rights reserved.</span></div>
+  </footer>
+</body>
+</html>
