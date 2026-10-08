@@ -1,0 +1,20 @@
+services:
+  sichae-site:
+    image: nginx:alpine
+    container_name: sichae-site
+    restart: unless-stopped
+    expose:
+      - "80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./en.html:/usr/share/nginx/html/en.html:ro
+      - ./logo.svg:/usr/share/nginx/html/logo.svg:ro
+    networks:
+      nginx-proxy-manager:
+        aliases:
+          - sichae-site
+
+networks:
+  nginx-proxy-manager:
+    external: true
+    name: nginx-proxy-manager
