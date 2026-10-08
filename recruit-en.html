@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073b91">
+  <meta name="description" content="Join SICHAE, a startup developing a field-focused automation control software platform.">
+  <title>Careers | SICHAE</title>
+  <style>
+    :root { --navy:#071c42; --blue:#0756b7; --bright:#1678e8; --cyan:#56def5; --ink:#10284b; --muted:#627793; --line:#dce9f5; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:#f6faff; font-family:Arial,"Noto Sans",sans-serif; line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1080px,calc(100% - 44px)); margin:0 auto; }
+    .topbar { position:absolute; inset:0 0 auto; color:white; }
+    .nav { height:78px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:white; font-size:23px; font-weight:800; letter-spacing:.14em; }
+    .nav-links { display:flex; align-items:center; gap:23px; font-size:13px; color:#deedff; }
+    .nav-links a:hover,.lang:hover { color:var(--cyan); }
+    .lang { padding:6px 10px; border:1px solid rgba(255,255,255,.4); border-radius:999px; font-size:11px; font-weight:800; }
+    .hero { padding:150px 0 76px; color:white; background:radial-gradient(ellipse at 80% 25%,#1678e8 0,transparent 38%),linear-gradient(125deg,#062454,#0756b7 65%,#0879d1); }
+    .kicker { margin:0 0 12px; color:#8eeaff; font-size:12px; font-weight:800; letter-spacing:.16em; }
+    h1 { max-width:780px; margin:0; font-size:clamp(37px,5.5vw,62px); line-height:1.2; letter-spacing:-.05em; }
+    .hero p:last-child { max-width:720px; margin:22px 0 0; color:#deedff; font-size:17px; }
+    .hero-tag { display:inline-block; margin-top:24px; padding:7px 12px; border:1px solid rgba(185,244,255,.5); border-radius:999px; color:#b9f4ff; font-size:10px; font-weight:800; letter-spacing:.12em; }
+    .section { padding:78px 0; }
+    .head { max-width:700px; margin-bottom:30px; }
+    .head .kicker { color:var(--bright); }
+    h2 { margin:0; font-size:clamp(28px,4vw,40px); line-height:1.25; letter-spacing:-.04em; }
+    .intro { margin:14px 0 0; color:var(--muted); font-size:15px; }
+    .role-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .card { padding:24px; border:1px solid var(--line); border-radius:17px; background:white; }
+    .card .number { color:var(--bright); font-size:10px; font-weight:800; letter-spacing:.13em; }
+    .card h3 { margin:10px 0 7px; font-size:18px; }
+    .card p { margin:0; color:var(--muted); font-size:13px; }
+    .expect { background:white; }
+    .expect-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .expect-item { padding:21px 23px; border-radius:15px; background:#f0f7ff; }
+    .expect-item strong { display:block; font-size:15px; }
+    .expect-item p { margin:5px 0 0; color:var(--muted); font-size:13px; }
+    .process-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .process { padding:21px; border:1px solid var(--line); border-radius:15px; background:white; }
+    .process span { color:var(--bright); font-size:10px; font-weight:800; letter-spacing:.12em; }
+    .process h3 { margin:9px 0 4px; font-size:16px; }
+    .process p { margin:0; color:var(--muted); font-size:13px; }
+    .note { margin:18px 0 0; color:#73869e; font-size:12px; }
+    .apply { padding:66px 0; color:white; background:linear-gradient(110deg,#0756b7,#0879d1); }
+    .apply-row { display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .apply h2 { font-size:clamp(27px,3.5vw,38px); }
+    .apply-copy { margin:12px 0 0; color:#d5eaff; }
+    .apply-list { margin:15px 0 0; padding-left:19px; color:#e6f4ff; font-size:13px; }
+    .mail { display:inline-flex; align-items:center; gap:10px; flex-shrink:0; padding:15px 19px; border-radius:13px; color:var(--blue); background:white; font-weight:800; }
+    .mail:hover { background:#e8f8ff; }
+    footer { padding:23px 0; color:#aec0d5; background:#061833; font-size:12px; }
+    .foot { display:flex; justify-content:space-between; gap:16px; }
+    @media(max-width:760px) { .role-grid,.process-grid { grid-template-columns:1fr; } .expect-grid { grid-template-columns:1fr; } .apply-row { align-items:flex-start; flex-direction:column; } }
+    @media(max-width:580px) { .wrap { width:calc(100% - 34px); } .nav { height:68px; } .nav-links { gap:12px; font-size:12px; } .nav-links a:not(.lang) { display:none; } .hero { padding:122px 0 60px; } .section { padding:64px 0; } .foot { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="en.html">SICHAE</a>
+      <div class="nav-links">
+        <a href="en.html">Home</a>
+        <a href="en.html#business">Business</a>
+        <a href="en.html#technology">Technology</a>
+        <a href="#apply">How to apply</a>
+        <a class="lang" href="recruit.html" lang="ko" aria-label="Korean careers page">KO</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="kicker">CAREERS AT SICHAE</p>
+        <h1>Help build what’s next<br>in automation control.</h1>
+        <p>SICHAE is a startup developing an automation control software platform, drawing on hands-on experience in semiconductor, solar, and battery manufacturing. Join us in turning real factory-floor challenges into better software.</p>
+        <span class="hero-tag">OPEN APPLICATION · TALENT POOL</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head">
+          <p class="kicker">AREAS OF INTEREST</p>
+          <h2>We’re interested in people across these disciplines.</h2>
+          <p class="intro">We are open to conversations across a range of roles. We’ll discuss fit based on your experience and SICHAE’s development priorities.</p>
+        </div>
+        <div class="role-grid">
+          <article class="card"><span class="number">01 · CONTROL</span><h3>Automation control software</h3><p>People interested in or experienced with PC and PLC control, equipment sequences, interlocks, and device communication.</p></article>
+          <article class="card"><span class="number">02 · MOTION &amp; SYSTEMS</span><h3>Motion, electrical, and system integration</h3><p>People comfortable connecting motion control, I/O, sensors, actuators, and equipment configurations.</p></article>
+          <article class="card"><span class="number">03 · VISION &amp; DATA</span><h3>Vision, image processing, and MES</h3><p>People interested in industrial cameras, image detection, equipment data, and MES integration.</p></article>
+        </div>
+        <p class="note">Specific roles and timing will depend on development plans and candidate experience.</p>
+      </div>
+    </section>
+
+    <section class="section expect">
+      <div class="wrap">
+        <div class="head">
+          <p class="kicker">HOW WE WORK</p>
+          <h2>The kind of teammates we value.</h2>
+          <p class="intro">We value people who work through real-world problems with curiosity and care, alongside their technical skills.</p>
+        </div>
+        <div class="expect-grid">
+          <article class="expect-item"><strong>Curious about real equipment challenges</strong><p>You look beyond symptoms to understand causes and how the system works.</p></article>
+          <article class="expect-item"><strong>Enjoy learning and trying new approaches</strong><p>You are motivated to learn control technologies and software, and make steady improvements.</p></article>
+          <article class="expect-item"><strong>Communicate technical work clearly</strong><p>You share progress and engineering decisions in a way teammates and customers can understand.</p></article>
+          <article class="expect-item"><strong>Adapt well in an early-stage team</strong><p>You take initiative and find a path forward as priorities evolve.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head">
+          <p class="kicker">SELECTION PROCESS</p>
+          <h2>What to expect</h2>
+          <p class="intro">A straightforward process to learn about your experience, interests, and potential fit.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process"><span>STEP 01</span><h3>Email your application</h3><p>Send your résumé and the role or area you are interested in.</p></article>
+          <article class="process"><span>STEP 02</span><h3>Application review and interview</h3><p>We review your experience and discuss expectations on both sides.</p></article>
+          <article class="process"><span>STEP 03</span><h3>Follow-up</h3><p>We will share the outcome and next steps by email.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="apply" id="apply">
+      <div class="wrap apply-row">
+        <div>
+          <p class="kicker">HOW TO APPLY</p>
+          <h2>Email us your résumé.</h2>
+          <p class="apply-copy">Tell us which area interests you and attach your résumé. We’ll review your application and get back to you.</p>
+          <ul class="apply-list">
+            <li>Subject: [SICHAE Application] Name · Area of Interest</li>
+            <li>Please attach a résumé. A portfolio or project summary is optional.</li>
+            <li>Please exclude confidential customer or restricted materials.</li>
+          </ul>
+        </div>
+        <a class="mail" href="mailto:admin@sichae.com?subject=%5BSICHAE%20Application%5D%20Name%20%C2%B7%20Area%20of%20Interest">✉&nbsp; admin@sichae.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap foot"><span>SICHAE · Automation Control Software Platform</span><span>Gimpo D1 City Knowledge Industry Center, 193 Gurae-dong, Gimpo-si, Gyeonggi-do, Republic of Korea</span><span>© SICHAE. All rights reserved.</span></div></footer>
+</body>
+</html>

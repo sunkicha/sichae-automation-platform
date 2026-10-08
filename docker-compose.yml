@@ -8,6 +8,8 @@ services:
     volumes:
       - ./index.html:/usr/share/nginx/html/index.html:ro
       - ./en.html:/usr/share/nginx/html/en.html:ro
+      - ./recruit.html:/usr/share/nginx/html/recruit.html:ro
+      - ./recruit-en.html:/usr/share/nginx/html/recruit-en.html:ro
       - ./logo.svg:/usr/share/nginx/html/logo.svg:ro
     networks:
       nginx-proxy-manager:
