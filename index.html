@@ -57,6 +57,10 @@
     .button-light { color: #073b91; background: white; }
     .button-outline { border: 1px solid rgba(255,255,255,.5); color: white; }
     .media-placeholder { min-height: 340px; border: 1px solid rgba(199,237,255,.35); border-radius: 28px; background: linear-gradient(145deg, rgba(210,244,255,.13), rgba(3,36,93,.25)); display: grid; place-items: center; position: relative; overflow: hidden; box-shadow: 0 28px 90px rgba(0,20,65,.2); }
+    .hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo::before { display: none; }
+    .hero-photo::after { inset: 0; width: auto; height: auto; border: 0; border-radius: inherit; background: linear-gradient(0deg, rgba(3,22,54,.78), transparent 58%); }
+    .hero-photo-label { position: absolute; z-index: 1; left: 26px; bottom: 22px; color: white; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
     .media-placeholder::before, .media-placeholder::after { content: ""; position: absolute; border: 1px solid rgba(202,240,255,.14); border-radius: 50%; width: 230px; height: 230px; }
     .media-placeholder::after { width: 310px; height: 310px; }
     .coming { position: relative; z-index: 1; text-align: center; color: #e8f8ff; }
@@ -170,6 +174,10 @@
     .case-placeholder .coming { color: #37618e; }
     .case-placeholder .coming-icon { border-color: #a8cae8; color: var(--blue); }
     .case-placeholder .coming span { color: #7188a2; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .photo-card { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 17px; background: white; box-shadow: 0 12px 32px rgba(26,77,130,.07); }
+    .photo-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #eaf2fa; }
+    .photo-card figcaption { padding: 13px 16px; color: #425d7e; font-size: 13px; font-weight: 700; }
     .faq { background: #f6faff; }
     .faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
     .faq-layout .section-head { margin: 0; }
@@ -194,6 +202,7 @@
       .hero { padding-top: 140px; }
       .media-placeholder { min-height: 260px; }
       .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .approach-grid { grid-template-columns: repeat(2, 1fr); }
       .issue-grid { grid-template-columns: repeat(2, 1fr); }
       .faq-layout { grid-template-columns: 1fr; gap: 32px; }
@@ -262,9 +271,7 @@
             <a class="button button-outline" href="#contact">개발·협력 문의</a>
           </div>
         </div>
-        <div class="media-placeholder" aria-label="이미지 준비 중">
-          <div class="coming"><div class="coming-icon" aria-hidden="true">＋</div><strong>COMING SOON</strong><span>플랫폼 화면 공개 준비 중</span></div>
-        </div>
+        <figure class="media-placeholder hero-photo"><img src="assets/gallery/IMG_0178.webp" alt="자동화 설비 내부의 모션 구동부와 작업 스테이션" fetchpriority="high"><figcaption class="hero-photo-label">AUTOMATION EQUIPMENT · FIELD EXPERIENCE</figcaption></figure>
       </div>
     </section>
 
@@ -482,11 +489,22 @@
       <div class="wrap">
         <div class="section-head">
           <p class="section-kicker">PROJECTS</p>
-          <h2>적용 사례</h2>
-          <p class="section-intro">플랫폼 화면과 개발 소식, 적용 사례를 순차적으로 공개할 예정입니다.</p>
+          <h2>자동화 현장 사진</h2>
+          <p class="section-intro">자동화 설비, 제어 구성, 비전 검사 화면 등 현장 사진을 소개합니다.</p>
         </div>
-        <div class="case-placeholder" aria-label="적용 사례 준비 중">
-          <div class="coming"><div class="coming-icon" aria-hidden="true">＋</div><strong>COMING SOON</strong><span>적용 사례를 준비하고 있습니다</span></div>
+        <div class="photo-grid">
+          <figure class="photo-card"><img src="assets/gallery/IMG_0285.webp" alt="자동화 장비 제어반 내부의 드라이브와 배선" loading="lazy" decoding="async"><figcaption>제어반 및 구동 구성</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_0360.webp" alt="비전 검사 장비의 제어 화면" loading="lazy" decoding="async"><figcaption>비전 검사 화면</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_0362.webp" alt="검사 대상 위치를 표시하는 비전 제어 화면" loading="lazy" decoding="async"><figcaption>비전 정렬 및 검사</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_0600.webp" alt="비전 검사 장비의 운전 상태 화면" loading="lazy" decoding="async"><figcaption>장비 운전 및 상태 화면</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_0618.webp" alt="프레임과 구동부로 구성된 자동화 설비" loading="lazy" decoding="async"><figcaption>자동화 설비 구성</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_1188.webp" alt="비전 및 모션 파라미터를 설정하는 제어 화면" loading="lazy" decoding="async"><figcaption>비전·모션 설정</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_1196.webp" alt="카메라 좌표와 검사 위치를 확인하는 제어 화면" loading="lazy" decoding="async"><figcaption>카메라 좌표 및 검사 위치</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_1829.webp" alt="정밀 이송 장치의 기구부와 센서" loading="lazy" decoding="async"><figcaption>정밀 이송 기구</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_2270.webp" alt="산업용 조명과 검사 장치가 포함된 자동화 설비" loading="lazy" decoding="async"><figcaption>검사 장비 구성</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_2740.webp" alt="설비 내부에 설치된 산업용 카메라" loading="lazy" decoding="async"><figcaption>산업용 카메라 설치</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_3043.webp" alt="자동화 설비의 생산 및 운전 정보 화면" loading="lazy" decoding="async"><figcaption>설비 운전 정보</figcaption></figure>
+          <figure class="photo-card"><img src="assets/gallery/IMG_9633.webp" alt="비전 검사 단계가 표시된 장비 조작 화면" loading="lazy" decoding="async"><figcaption>비전 검사 공정</figcaption></figure>
         </div>
       </div>
     </section>

@@ -11,6 +11,7 @@ services:
       - ./recruit.html:/usr/share/nginx/html/recruit.html:ro
       - ./recruit-en.html:/usr/share/nginx/html/recruit-en.html:ro
       - ./logo.svg:/usr/share/nginx/html/logo.svg:ro
+      - ./assets:/usr/share/nginx/html/assets:ro
     networks:
       nginx-proxy-manager:
         aliases:
